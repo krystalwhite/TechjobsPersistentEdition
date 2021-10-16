@@ -23,7 +23,7 @@ public class Job{
         this.skills = someSkills;
     }
 
-    // Getters and setters.
+    // Getters and setters
 
     public String getName() {
         return name;
