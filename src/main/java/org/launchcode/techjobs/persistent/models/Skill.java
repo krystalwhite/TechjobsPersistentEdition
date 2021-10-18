@@ -22,24 +22,9 @@ public class Skill extends AbstractEntity {
         this.description = description;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Skill skill = (Skill) o;
-        return Objects.equals(description, skill.description);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), description);
-    }
 
     @Override
     public String toString() {
-        return "Skill{" +
-                "description='" + description + '\'' +
-                '}';
+        return getName() + ": " + description;
     }
 }

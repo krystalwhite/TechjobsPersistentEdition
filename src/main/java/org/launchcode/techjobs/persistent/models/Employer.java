@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Employer extends AbstractEntity {
 
     @NotBlank(message = "Location is a required field.")
-    @Size(min=1, max = 50, message = "Maximum character length is 50.")
+    @Size(min=1, max = 100, message = "Maximum character length is 100.")
     private String location;
 
     public Employer(String location) {
