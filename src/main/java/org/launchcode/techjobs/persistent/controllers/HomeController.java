@@ -31,6 +31,7 @@ public class HomeController {
     public String displayAddJobForm(Model model) {
         model.addAttribute("title", "Add Job");
         model.addAttribute(new Job());
+        model.addAttribute("employers", employerRepository.findAll());
         return "add";
     }
 
@@ -45,9 +46,9 @@ public class HomeController {
             model.addAttribute("title", "Add Job");
             return "add";
         }
-        model.addAttribute("job", newJob);
-        model.addAttribute("employerId", employerId);
-        model.addAttribute("skills", skills);
+//        model.addAttribute("job", newJob);
+//        model.addAttribute("employerId", employerId);
+//        model.addAttribute("skills", skills);
 //        employerRepository.save(new Employer(employerId));
         return "redirect:";
     }
