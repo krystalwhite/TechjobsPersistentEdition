@@ -1,11 +1,15 @@
 package org.launchcode.techjobs.persistent.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Job extends AbstractEntity {
 
+//    should this have a @JoinColumn notation? the notes say it should be on the ManytoOne side
     @ManyToOne
+    @NotBlank(message = "Employer is required.")
     private Employer employer;
 
 //    should this be @ManyToMany??

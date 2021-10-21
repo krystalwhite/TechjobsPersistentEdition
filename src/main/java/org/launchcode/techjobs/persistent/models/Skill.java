@@ -12,8 +12,8 @@ public class Skill extends AbstractEntity {
 
     private String description;
 
-//    @OneToMany(mappedBy = "skill")
-//    private List<Job> jobs = new ArrayList<>();
+    @OneToMany(mappedBy = "skill")
+    private List<Job> jobs = new ArrayList<>();
 
     public Skill(){}
 

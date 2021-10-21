@@ -18,8 +18,9 @@ public class Employer extends AbstractEntity {
     @Size(min=1, max = 100, message = "Maximum character length is 100.")
     private String location;
 
+//    should this be (mappedBy = "employer") instead of @JoinColumn?
     @OneToMany
-    @JoinColumn(name="employer_id")
+    @JoinColumn(name = "employer_id")
     private List<Job> jobs = new ArrayList<>();
 
     public Employer(String location) {
