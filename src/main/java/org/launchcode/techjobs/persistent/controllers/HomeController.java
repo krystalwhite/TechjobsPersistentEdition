@@ -45,6 +45,8 @@ public class HomeController {
         return "add";
     }
 
+//    this version has errors but they are not displaying; all I know is that when submitted the form returns back to add
+//    and the add keeps value for the job field but erases all employer options from dropdown menu and has no checkbox of skills
     @PostMapping("add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
                                     Errors errors,
