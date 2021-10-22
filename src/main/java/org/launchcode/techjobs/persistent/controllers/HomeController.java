@@ -44,6 +44,10 @@ public class HomeController {
         return "add";
     }
 
+
+//    if entering new job from form and doesn't include skills then get an error
+//    should this be @RequestParam(required = false)?
+//    submitting the form saves into jobRepository and returns back to localhost
     @PostMapping("add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
                                     Errors errors,
