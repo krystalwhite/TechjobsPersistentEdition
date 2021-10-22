@@ -9,10 +9,11 @@ public class Job extends AbstractEntity {
 
 //    should this have a @JoinColumn notation? the notes say it should be on the ManytoOne side
     @ManyToOne
-    @NotBlank(message = "Employer is required.")
-    private Employer employer;
+    @NotNull(message = "Employer is required.")
+    private Employer employer; //cannot be required because we have a no-arg constructor??
 
 //    should this be @ManyToMany??
+    @NotNull(message = "Skills are required.")
     private String skills;
 
     public Job() {

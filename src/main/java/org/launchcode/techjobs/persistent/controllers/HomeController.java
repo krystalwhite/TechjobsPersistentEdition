@@ -41,7 +41,7 @@ public class HomeController {
         model.addAttribute(new Job());
         model.addAttribute("employers", employerRepository.findAll());
         model.addAttribute("skills", skillRepository.findAll());
-        model.addAttribute("jobs", jobRepository.findAll());
+//        model.addAttribute("jobs", jobRepository.findAll()); //uncertain whether this helps
         return "add";
     }
 
@@ -56,7 +56,7 @@ public class HomeController {
             model.addAttribute("title", "Add Job");
             return "add";
         }
-        jobRepository.save(newJob);
+        jobRepository.save(newJob); //should we also be adding the employer_id somehow??
         return "redirect:";
     }
 

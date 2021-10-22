@@ -21,7 +21,7 @@ public class Employer extends AbstractEntity {
 //    should this be (mappedBy = "employer") instead of @JoinColumn?
     @OneToMany
     @JoinColumn(name = "employer_id")
-    private List<Job> jobs = new ArrayList<>();
+    private final List<Job> jobs = new ArrayList<>();
 
     public Employer(String location) {
         this.location = location;
