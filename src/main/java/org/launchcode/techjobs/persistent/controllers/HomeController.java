@@ -55,6 +55,8 @@ public class HomeController {
             model.addAttribute("title", "Add Job");
             return "add";
         }
+//        somehow need to incorporate newJob with employerId and skills list into the same mashup
+
         jobRepository.save(newJob);
         return "redirect:";
     }
