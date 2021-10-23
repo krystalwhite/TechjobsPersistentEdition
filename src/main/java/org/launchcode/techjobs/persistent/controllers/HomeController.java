@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by LaunchCode
@@ -41,13 +42,10 @@ public class HomeController {
         model.addAttribute(new Job());
         model.addAttribute("employers", employerRepository.findAll());
         model.addAttribute("skills", skillRepository.findAll());
+        model.addAttribute("jobs", jobRepository.findAll());
         return "add";
     }
 
-
-//    if entering new job from form and doesn't include skills then get an error
-//    should this be @RequestParam(required = false)?
-//    submitting the form saves into jobRepository and returns back to localhost
     @PostMapping("add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
                                     Errors errors,
@@ -59,8 +57,8 @@ public class HomeController {
             model.addAttribute("title", "Add Job");
             return "add";
         }
-//        somehow need to incorporate newJob with employerId and skills list into the same mashup
-
+        Employer jobEmployer = employerRepository.findById(employerId).orElse(new Employer());
+        newJob.setEmployer(jobEmployer);
         jobRepository.save(newJob);
         return "redirect:";
     }
