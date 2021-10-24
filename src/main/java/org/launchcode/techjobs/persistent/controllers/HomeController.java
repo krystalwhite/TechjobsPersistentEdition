@@ -59,9 +59,13 @@ public class HomeController {
         }
         Employer jobEmployer = employerRepository.findById(employerId).orElse(new Employer());
         newJob.setEmployer(jobEmployer);
+//        System.out.println("From webpage: " + jobEmployer.getLocation());
         List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
+//        System.out.println("List: " + skillObjs.toArray().length);
         newJob.setSkills(skillObjs);
         jobRepository.save(newJob);
+//        skillObjs.add();
+//        skillRepository.save(skillObjs);
         return "redirect:";
     }
 
