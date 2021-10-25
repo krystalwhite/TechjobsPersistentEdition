@@ -57,6 +57,18 @@ public class HomeController {
             model.addAttribute("title", "Add Job");
             return "add";
         }
+
+//        Optional<Employer> result = employerRepository.findById(employerId);
+//        if (result.isPresent()) {
+//            Employer newJobEmployer = result.get();
+//            newJob.setEmployer(newJobEmployer);
+//            List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
+//            newJob.setSkills(skillObjs);
+//            jobRepository.save(newJob);
+//        }
+
+
+
         Employer jobEmployer = employerRepository.findById(employerId).orElse(new Employer());
         newJob.setEmployer(jobEmployer);
         System.out.println("From webpage: " + jobEmployer.getLocation());
@@ -64,7 +76,11 @@ public class HomeController {
         System.out.println("List: " + skillObjs.toArray().length);
         newJob.setSkills(skillObjs);
         jobRepository.save(newJob);
+        model.addAttribute("jobs", jobRepository.findAll());
         System.out.println("From webpage: " + newJob.getSkills());
+
+
+
 //        skillObjs.add();
 //        skillRepository.save(skillObjs);
         return "redirect:";
