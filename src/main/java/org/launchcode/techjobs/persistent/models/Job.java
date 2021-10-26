@@ -12,19 +12,16 @@ public class Job extends AbstractEntity {
 
     @ManyToMany
     private List<Skill> skills = new ArrayList<>();
-//    private String skills;
 
     public Job() {
     }
 
-//    does job need to take in skills as a parameter? does it need to initialize skills?
     public Job(Employer anEmployer, List<Skill> skills) {
         super();
         this.employer = anEmployer;
         this.skills = skills;
     }
 
-    // Getters and setters
     public Employer getEmployer() {
         return employer;
     }
