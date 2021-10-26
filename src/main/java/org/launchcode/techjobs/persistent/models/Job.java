@@ -12,17 +12,17 @@ public class Job extends AbstractEntity {
     private Employer employer;
 
     @ManyToMany
+    @JoinColumn(name = "employer_id")
     private List<Skill> skills = new ArrayList<>();
-//    private String skills;
-
-    public Job() {
-    }
 
 //    does job need to take in skills as a parameter? does it need to initialize skills?
     public Job(Employer anEmployer, List<Skill> skills) {
         super();
         this.employer = anEmployer;
         this.skills = skills;
+    }
+
+    public Job() {
     }
 
     // Getters and setters

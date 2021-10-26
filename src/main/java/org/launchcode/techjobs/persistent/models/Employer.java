@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.persistent.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
