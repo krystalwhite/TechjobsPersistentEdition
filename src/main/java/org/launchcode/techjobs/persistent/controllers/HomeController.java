@@ -34,6 +34,9 @@ public class HomeController {
     @RequestMapping("")
     public String index(Model model) {
         model.addAttribute("title", "My Jobs");
+//        model.addAttribute("employers", employerRepository.findAll());
+//        model.addAttribute("skills", skillRepository.findAll());
+        model.addAttribute("jobs", jobRepository.findAll());
         return "index";
     }
 
@@ -59,9 +62,7 @@ public class HomeController {
         }
         Employer jobEmployer = employerRepository.findById(employerId).orElse(new Employer());
         newJob.setEmployer(jobEmployer);
-//        System.out.println("From webpage: " + jobEmployer.getLocation());
         List<Skill> skillObjs = (List<Skill>) skillRepository.findAllById(skills);
-//        System.out.println("List: " + skillObjs.toArray().length);
         newJob.setSkills(skillObjs);
         jobRepository.save(newJob);
 //        skillObjs.add();
@@ -72,6 +73,7 @@ public class HomeController {
     @GetMapping("view/{jobId}")
     public String displayViewJob(Model model, @PathVariable int jobId) {
         Job job = jobRepository.findById(jobId).orElse(new Job());
+        model.addAttribute("title", "Job");
         model.addAttribute("job", job);
         return "view";
     }
